@@ -1,0 +1,30 @@
+<?php   /** @var \Kobaf\RandomSidebar2\ViewModel\Sidebar $viewModel */
+    /** @var  Magento\Framework\View\Element\Template $block*/
+    /** @var \Magento\Framework\Escaper $escaper */
+    /** @var \Magento\Catalog\Model\Product $product */
+?>
+<?php
+    $viewModel = $block->getViewModel();
+    $productCollection = $viewModel->getProductCollection(); ?>
+<div class="kobaf-random-sidebar">
+    <h4><?=$escaper->escapeHtml(__($this->getData('block_title')))?></h4>
+    
+    <?php foreach ($productCollection as $product):
+
+    
+    ?>
+        <div class="custom-sidebar-item">
+            <a href="<?=$escaper->escapeUrl($product->getProductUrl())?>">
+                <img class="custom-sidebar-img"
+                    src="<?=$escaper->escapeUrl($viewModel->getImageUrl($product, $product->getImage()))?>">
+            </a>
+            <div>
+                <a href="<?=$escaper->escapeUrl($product->getProductUrl())?>">
+                    <?=$escaper->escapeHtml($product->getName())?>
+                </a>
+                <br>
+                <strong><?=$escaper->escapeHtml($product->getFormattedPrice(),['span'])?></strong>
+            </div>
+        </div>
+    <?php endforeach; ?>
+</div>

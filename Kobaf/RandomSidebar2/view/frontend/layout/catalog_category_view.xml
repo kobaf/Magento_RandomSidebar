@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+
+    <body>
+        <referenceContainer name="sidebar.additional">
+
+            <block name="product.random-random-sidebar" as="random_sidebar" template="Kobaf_RandomSidebar2::product/random-sidebar.phtml" after="wishlist_sidebar" cacheable="false">
+                <arguments>
+                    <argument name="view_model" xsi:type="object">Kobaf\RandomSidebar2\ViewModel\Sidebar</argument>
+                    <argument name="block_title" xsi:type="string">Custom Block</argument>
+                </arguments>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
